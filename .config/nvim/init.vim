@@ -22,6 +22,7 @@ Plug 'vim-syntastic/syntastic'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'jmcantrell/vim-virtualenv'
+Plug 'majutsushi/tagbar'
 "Plug 'roxma/nvim-completion-manager'
 "Plug 'SirVer/ultisnips'
 "Plug 'honza/vim-snippets'
@@ -57,6 +58,11 @@ let g:gitgutter_grep=''
 
 " ### nerdTree ###
 autocmd VimEnter * NERDTree | wincmd p
+
+" ### tagbar ###
+nmap <F8> :TagbarToggle<CR>
+" enable/disable tagbar integration
+let g:airline#extensions#tagbar#enabled = 1
 
 " ### syntastic ###
 set statusline+=%#warningmsg#
