@@ -2,6 +2,7 @@ alias pdfcrop="~/Documents/kobo_config/pdfconversion/k2pdfopt"
 alias nvim="nvim -u ~/.config/nvim/init.vim"
 alias ll="ls -alh"
 alias grep="grep --color"
+alias cronedit='var1=$EDITOR;export EDITOR=nano;crontab -e; export EDITOR=$var1'
 
 export TERM=xterm-256color
 export EDITOR=nvim
