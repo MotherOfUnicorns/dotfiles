@@ -6,6 +6,7 @@ alias cronedit='var1=$EDITOR;export EDITOR=nano;crontab -e; export EDITOR=$var1'
 
 export TERM=xterm-256color
 export EDITOR=nvim
+export LC_ALL=en_US.UTF-8
 
 
 ### colours ###
@@ -106,3 +107,4 @@ source ~/dotfiles/git-completion.sh
 # 		echo ""[
 # 	fi
 # }
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
