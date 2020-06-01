@@ -1,10 +1,11 @@
-set runtimepath+='~/.config/nvim/init.vim'
-set runtimepath+=~/.config/nvim/bundle/deoplete.nvim/
+" :python3 import os
+" set runtimepath+='~/.config/nvim/init.vim'
+" set runtimepath+=~/.config/nvim/bundle/deoplete.nvim/
 
+set termguicolors
 :set guicursor=
 :set number
 :set relativenumber
-:colo desert
 syntax enable
 highlight ColorColumn ctermbg=LightGrey
 set colorcolumn=80
@@ -12,17 +13,23 @@ set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 
 " === vim-plug===
 call plug#begin()
-Plug 'w0rp/ale'
-Plug 'deoplete-plugins/deoplete-jedi'
-Plug 'Shougo/deoplete.nvim'
+"Plug 'dense-analysis/ale' "async lint engine[
+"Plug 'deoplete-plugins/deoplete-jedi'
+"Plug 'Shougo/deoplete.nvim'
 Plug 'scrooloose/nerdtree'
 Plug 'tmhedberg/SimpylFold'
-Plug 'gagoar/StripWhiteSpaces'
-Plug 'vim-syntastic/syntastic'
+"Plug 'gagoar/StripWhiteSpaces'
+"Plug 'vim-syntastic/syntastic'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'jmcantrell/vim-virtualenv'
-Plug 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar' " class outline on the right
+Plug 'psf/black', { 'branch': 'stable' }
+Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' } " docstring template
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'arzg/vim-corvine'
+"Plug 'lifepillar/vim-solarized8'
+Plug 'dracula/vim'
 "Plug 'roxma/nvim-completion-manager'
 "Plug 'SirVer/ultisnips'
 "Plug 'honza/vim-snippets'
@@ -37,20 +44,38 @@ call plug#end()
 "   Plug '~/.nvim_plugs/SimpylFold'
 "   Plug '~/.nvim_plugs/syntastic'
 " call plug#end()
+"
+"
+" ### nerdtree ###
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+
+"" ### ale ###
+"let b:ale_linters = {'python': ['mypy']}
+"let g:ale_lint_on_save = 1
+"let g:ale_lint_on_text_changed = 0
+"let g:ale_open_list = 1
+"let g:ale_list_window_size = 5
+"let g:ale_sign_column_always = 1
+"let g:ale_sign_error = '>'
+"let g:ale_sign_warning = '-'
+"let g:airline#extensions#ale#enabled = 1
+
 
 " ### simpylFold ###
 let g:SimpylFold_docstring_preview = 1
 let g:SimpylFold_fold_import = 0
 let g:SimpylFold_docstring = 0
 
-" ### syntastic ###
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-"let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" " ### syntastic ###
+" let g:syntastic_python_checkers = ['mypy']
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 
 " ### vim-gitgutter ###
 let g:GitGutterEnable = 1
@@ -64,14 +89,9 @@ nmap <F8> :TagbarToggle<CR>
 " enable/disable tagbar integration
 let g:airline#extensions#tagbar#enabled = 1
 
-" ### syntastic ###
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-"let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+
+" ### black ###
+autocmd BufWritePre *.py execute ':Black'
 
 
 " ### deoplete ###
@@ -113,6 +133,9 @@ let g:deoplete#enable_smart_case = 1
 " to join this conversation on GitHub. Already have an account? Sign in to comment
 
 
+" ### settings for coc ###
+so ~/dotfiles/.config/nvim/coc_settings.vim
+
 " ### hightlight whitespaces, and strip on saving file ###
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
@@ -127,3 +150,9 @@ let g:strip_trailing_lines = 1
 " disable stripping trailing white spaces and empty lines
 " let g:loaded_StripWhiteSpaces = 1
 " let b:disable_StripWhiteSpaces = 1
+
+
+":colo desert
+colorscheme corvine_light
+"colorscheme dracula
+"set background=light
