@@ -108,3 +108,6 @@ source ~/dotfiles/git-completion.sh
 # 	fi
 # }
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+
+test -r /opt/sw/bin/init.sh && . /opt/sw/bin/init.sh
+eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)"
