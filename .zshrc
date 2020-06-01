@@ -12,6 +12,14 @@ export ZSH="/Users/yun/.oh-my-zsh"
 # ZSH_THEME="philips"
 ZSH_THEME="tjkirch"
 
+act () {
+    source ~/venvs/$1/bin/activate
+}
+
+# set alias for crontab for weird editor issue
+alias cronedit='var1=$EDITOR;export EDITOR=nano;crontab -e; export EDITOR=$var1'
+
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
