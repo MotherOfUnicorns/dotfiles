@@ -30,6 +30,10 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'arzg/vim-corvine'
 "Plug 'lifepillar/vim-solarized8'
 Plug 'dracula/vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'stevearc/vim-arduino'
+Plug 'jpalardy/vim-slime'
 "Plug 'roxma/nvim-completion-manager'
 "Plug 'SirVer/ultisnips'
 "Plug 'honza/vim-snippets'
@@ -60,6 +64,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 "let g:ale_sign_error = '>'
 "let g:ale_sign_warning = '-'
 "let g:airline#extensions#ale#enabled = 1
+
 
 
 " ### simpylFold ###
@@ -150,6 +155,31 @@ let g:strip_trailing_lines = 1
 " disable stripping trailing white spaces and empty lines
 " let g:loaded_StripWhiteSpaces = 1
 " let b:disable_StripWhiteSpaces = 1
+
+
+" ### slime ###
+let g:slime_target = "tmux"
+" let g:slime_default_config = {"socket_name": get(split($TMUX, ","), 0), "target_pane": ":.2"}
+let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}
+
+" ### vim-arduino ###
+" my_file.ino [arduino:avr:uno] [arduino:usbtinyisp] (/dev/ttyACM0:9600)
+function! MyStatusLine()
+  let port = arduino#GetPort()
+  let line = '%f [' . g:arduino_board . '] [' . g:arduino_programmer . ']'
+  if !empty(port)
+    let line = line . ' (' . port . ':' . g:arduino_serial_baud . ')'
+  endif
+  return line
+endfunction
+" setl statusline=%!MyStatusLine()
+autocmd BufNewFile,BufRead *.ino let g:airline_section_x='%{MyStatusLine()}'
+" map some shortcuts
+nnoremap <buffer> <leader>av :ArduinoVerify<CR>
+nnoremap <buffer> <leader>au :ArduinoUpload<CR>
+nnoremap <buffer> <leader>aus :ArduinoUploadAndSerial<CR>
+" to connect to serial ports and run these commands in tmux/screen/some other location
+let g:arduino_use_slime = 1
 
 
 ":colo desert

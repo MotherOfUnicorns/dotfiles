@@ -16,6 +16,14 @@ act () {
     source ~/venvs/$1/bin/activate
 }
 
+strip_exif () {
+    convert $1 -strip $1
+}
+
+venvls () {
+    ls ~/venvs
+}
+
 # set alias for crontab for weird editor issue
 alias cronedit='var1=$EDITOR;export EDITOR=nano;crontab -e; export EDITOR=$var1'
 
@@ -108,3 +116,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source $HOME/.safe
