@@ -18,9 +18,13 @@ git submodule update --init --recursive
 pip3 install neovim black
 curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
 chmod u+x nvim.appimage
-if [ "$(uname -s)" = "Linux" ]
+if [ "$(uname -s)" = "darwin" ]
 then
+#    ln -s $HOME/dotfiles/nvim.appimage /usr/local/bin/nvim
+    echo
+else
     ./nvim.appimage
+#     ln -s $HOME/Applications/nvim*.appimage /usr/local/bin/nvim
 fi
 
 # install vim-plug for neovim
