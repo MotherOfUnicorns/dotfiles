@@ -1,4 +1,4 @@
-alias nvim="nvim -u $HOME/.config/nvim/init.vim"
+# alias nvim="nvim -u $HOME/.config/nvim/init.vim"
 alias ll="ls -alh"
 
 export TERM=xterm-256color
