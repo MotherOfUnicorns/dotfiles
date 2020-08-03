@@ -112,6 +112,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)"
 
-[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
-source $HOME/.safe
 alias ll="ls -alh"
+source $HOME/.safe
+[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh

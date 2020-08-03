@@ -1,8 +1,8 @@
 [user]
-	email = elfie_9999@yahoo.com
+	email = liyun.elf@gmail.com
 	name = yun
-[credential]
-	helper = osxkeychain
+# [credential]
+# 	helper = osxkeychain
 [color]
 	ui = auto
 [core]
