@@ -1,3 +1,4 @@
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -113,3 +114,4 @@ eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)"
 
 [ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 source $HOME/.safe
+alias ll="ls -alh"
