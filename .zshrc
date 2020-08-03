@@ -12,17 +12,8 @@ export ZSH="$HOME/.oh-my-zsh"
 # ZSH_THEME="philips"
 ZSH_THEME="tjkirch"
 
-act () {
-    source ~/venvs/$1/bin/activate
-}
-
-strip_exif () {
-    convert $1 -strip $1
-}
-
-venvls () {
-    ls ~/venvs
-}
+# custom shell functions
+source $HOME/dotfiles/shell_functions.sh
 
 # set alias for crontab for weird editor issue, only on Mac
 if [ "$(uname -s)" = "Darwin" ]
@@ -120,5 +111,5 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 source $HOME/.safe
