@@ -1,11 +1,20 @@
 alias nvim="nvim -u $HOME/.config/nvim/init.vim"
 alias ll="ls -alh"
-alias grep="grep --color"
 
 export TERM=xterm-256color
 export EDITOR=nvim
 export LC_ALL=en_US.UTF-8
 
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
 
 ### colours ###
 BLUE="\[\033[38;5;33m\]"
@@ -43,6 +52,7 @@ source $HOME/dotfiles/git-completion.sh
 source $HOME/dotfiles/shell_functions.sh
 
 
+# some mac-only stuff
 if [ "$(uname -s)" = "Darwin" ]
 then
     alias cronedit='var1=$EDITOR;export EDITOR=nano;crontab -e; export EDITOR=$var1'
