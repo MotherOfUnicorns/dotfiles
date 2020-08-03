@@ -114,4 +114,4 @@ eval "$(perl -I$HOME/perl5/lib/perl5 -Mlocal::lib=$HOME/perl5)"
 
 alias ll="ls -alh"
 source $HOME/.safe
-[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
