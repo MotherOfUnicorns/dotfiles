@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/yun/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -24,8 +24,11 @@ venvls () {
     ls ~/venvs
 }
 
-# set alias for crontab for weird editor issue
-alias cronedit='var1=$EDITOR;export EDITOR=nano;crontab -e; export EDITOR=$var1'
+# set alias for crontab for weird editor issue, only on Mac
+if [ "$(uname -s)" = "Darwin" ]
+then
+    alias cronedit='var1=$EDITOR;export EDITOR=nano;crontab -e; export EDITOR=$var1'
+fi
 
 
 # Set list of themes to pick from when loading at random
