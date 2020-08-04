@@ -8,6 +8,10 @@ strip_exif () {
     convert $1 -strip $1
 }
 
+new_py3venv () {
+    python3 -m venv $HOME/venvs/$1
+}
+
 venvls () {
     ls $HOME/venvs
 }
