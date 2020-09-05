@@ -16,10 +16,18 @@ venvls () {
     ls $HOME/venvs
 }
 
-if [ "$(uname -s)" = "Darwin" ]
-then
-    alias nvim="$HOME/dotfiles/nvim.appimage"  # $@
-else
-    alias nvim="$HOME/Applications/nvim*.appimage"  # $@
-fi
+tmuxsession(){
+    tmux new-session -s $(basename $(pwd))
+}
 
+# if [ "$(uname -s)" = "Darwin" ]
+# then
+#     alias nvim="$HOME/dotfiles/nvim.appimage"  # $@
+# else
+# 
+#     # alias nvim="$HOME/Applications/nvim*.appimage"  # $@
+# fi
+
+newtex () {
+    cp $HOME/dotfiles/latex_templates/$1.tex $2
+}

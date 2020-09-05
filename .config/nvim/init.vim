@@ -34,6 +34,8 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'stevearc/vim-arduino'
 Plug 'jpalardy/vim-slime'
+Plug 'lervag/vimtex'
+"Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 "Plug 'roxma/nvim-completion-manager'
 "Plug 'SirVer/ultisnips'
 "Plug 'honza/vim-snippets'

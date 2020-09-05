@@ -5,6 +5,7 @@ export TERM=xterm-256color
 # export EDITOR=nvim
 export VISUAL="vim"
 export LC_ALL=en_US.UTF-8
+export PATH=/snap/bin:$PATH
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then

@@ -3,9 +3,10 @@ then
     brew install reattach-to-user-namespace
     brew cask install alacritty
 else
-    sudo apt isntall sel
-    sudo apt install liblocal-lib-perl git tmux zsh
-    sudp apt install python3-pip
+    echo "hi"
+    # sudo apt isntall sel
+    # sudo apt install liblocal-lib-perl git tmux zsh
+    # sudp apt install python3-pip
     # snap install alacritty --classic
 fi
 
@@ -16,16 +17,16 @@ git submodule update --init --recursive
 
 # install neovim
 pip3 install neovim black
-curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
-chmod u+x nvim.appimage
-if [ "$(uname -s)" = "darwin" ]
-then
-#    ln -s $HOME/dotfiles/nvim.appimage /usr/local/bin/nvim
-    echo
-else
-    ./nvim.appimage
-#     ln -s $HOME/Applications/nvim*.appimage /usr/local/bin/nvim
-fi
+# curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim.appimage
+# chmod u+x nvim.appimage
+# if [ "$(uname -s)" = "darwin" ]
+# then
+# #    ln -s $HOME/dotfiles/nvim.appimage /usr/local/bin/nvim
+#     echo
+# else
+#     ./nvim.appimage
+# #     ln -s $HOME/Applications/nvim*.appimage /usr/local/bin/nvim
+# fi
 
 # install vim-plug for neovim
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
