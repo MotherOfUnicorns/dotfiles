@@ -16,6 +16,7 @@ ZSH_THEME="tjkirch"
 
 # custom shell functions
 source $HOME/dotfiles/shell_functions.sh
+source $HOME/dotfiles/aliases.sh
 
 # set alias for crontab for weird editor issue, only on Mac
 if [ "$(uname -s)" = "Darwin" ]
