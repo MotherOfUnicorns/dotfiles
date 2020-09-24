@@ -24,7 +24,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'majutsushi/tagbar' " class outline on the right
-Plug 'psf/black', { 'branch': 'stable' }
+" Plug 'psf/black', { 'branch': 'stable' }
 Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' } " docstring template
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'arzg/vim-corvine'
@@ -98,7 +98,8 @@ let g:airline#extensions#tagbar#enabled = 1
 
 
 " ### black ###
-autocmd BufWritePre *.py execute ':Black'
+" autocmd BufWritePre *.py execute ':Black'
+autocmd BufWritePre *.py execute ':Format'
 
 
 " ### deoplete ###
