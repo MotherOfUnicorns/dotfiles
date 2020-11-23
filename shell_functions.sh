@@ -31,3 +31,8 @@ tmuxsession(){
 newtex () {
     cp $HOME/dotfiles/latex_templates/$1.tex $2
 }
+
+zotero_pull () {
+    # servername
+    rsync -avzru $1:~/Zotero/storage/ ~/Zotero/storage
+}

@@ -44,7 +44,7 @@ export GIT_PS1_SHOWDIRTYSTATE=1
 # '\u' adds the name of the current user to the prompt
 # '\$(__git_ps1)' adds git-related stuff
 # '\W' adds the name of the current directory
-export PS1="$BLUE\u$RED@$BLUE\h $RED\w$YELLOW\$(__git_ps1) $BLUE\D{%F %T} \n$RED$ $RESET"
+export PS1="$BLUE\u$RED@$BLUE\h $RED\w$PURPLE\$(__git_ps1) $BLUE\D{%F %T} \n$RED$ $RESET"
 # export PS1="${BLUE}\u\[$(tput sgr0)\]${RED}@\[$(tput sgr0)\]${BLUE}\h\[$(tput sgr0)\] ${RED}\w\[$(tput sgr0)\]\$(parse_git_branch) ${BLUE}\D{%F %T}\[$(tput sgr0)\] \n${RED}$\[$(tput sgr0)\] "
 
 # Enable tab completion for git
