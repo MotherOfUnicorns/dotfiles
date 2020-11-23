@@ -16,3 +16,5 @@
 #         '"
 # smudge = cat
 # required = true
+[credential]
+	helper = store
